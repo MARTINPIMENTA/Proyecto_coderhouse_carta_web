@@ -1,0 +1,41 @@
+/* Header css */
+.navbar {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bg-light {
+  background: white;
+}
+
+/* Main css */
+main {
+  background-color: #b6b6b6;
+}
+
+.container {
+  text-align: center;
+}
+
+.main-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.principal-banner-container {
+  background-color: aqua;
+  height: 350px;
+}
+
+.principal-banner {
+  background-color: red;
+  position: relative;
+  top: 150px;
+}
+
+.food-article {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+/*# sourceMappingURL=styles.css.map */
