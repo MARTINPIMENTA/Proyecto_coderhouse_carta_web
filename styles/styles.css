@@ -107,6 +107,10 @@ footer {
   background: black;
 }
 
+.wrapper a {
+  text-decoration: none;
+}
+
 .wrapper .button {
   display: inline-block;
   height: 30px;
@@ -139,44 +143,20 @@ footer {
   transition: all 0.3s ease-out;
 }
 
-.wrapper .button:nth-child(1):hover {
-  background: #4267B2;
+.wrapper .button:hover {
+  background: red;
 }
 
-.wrapper .button:nth-child(2):hover {
-  background: #E1306C;
+.wrapper .button .icon {
+  background: #ff0000;
 }
 
-.wrapper .button:nth-child(3):hover {
-  background: #333;
-}
-
-.wrapper .button:nth-child(1) .icon {
-  background: #4267B2;
-}
-
-.wrapper .button:nth-child(2) .icon {
-  background: #E1306C;
-}
-
-.wrapper .button:nth-child(3) .icon {
-  background: #333;
-}
-
-.wrapper .button:nth-child(1):hover .icon {
-  background: #4267B2;
-}
-
-.wrapper .button:nth-child(2):hover .icon {
-  background: #E1306C;
-}
-
-.wrapper .button:nth-child(3):hover .icon {
-  background: #333;
+.wrapper .button .icon {
+  background: #ff0000;
 }
 
 .wrapper .button:hover .icon i {
-  color: #888888;
+  color: red;
 }
 
 .wrapper .button span {
@@ -188,15 +168,7 @@ footer {
   transition: all 0.3s ease-out;
 }
 
-.wrapper .button:nth-child(1) span {
-  color: #4267B2;
-}
-
-.wrapper .button:nth-child(2) span {
-  color: #E1306C;
-}
-
-.wrapper .button:nth-child(3) span {
-  color: #333;
+.wrapper .button span {
+  color: #ff0000;
 }
 /*# sourceMappingURL=styles.css.map */
