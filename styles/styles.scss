@@ -96,6 +96,22 @@ body{
   font-weight: bold;
 }
 
+.sites-container{
+  background-color: rgba(0, 0, 0, 0.459);
+  height: 900px;
+  margin-bottom: 3rem;
+}
+
+.articulo-site{
+  padding-top: 9rem;
+  margin-bottom: 2rem;
+  color: aliceblue;
+}
+
+.articulo-site iframe{
+  border-radius: 5px;
+}
+
 /* Footer css */
 footer{
   display: grid;
