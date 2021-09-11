@@ -2,16 +2,22 @@
 .navbar {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  margin-bottom: 1rem;
+}
+
+.navbar a {
+  color: aliceblue !important;
 }
 
 .bg-light {
-  background: white;
+  background: black;
+  background: -webkit-gradient(linear, left top, left bottom, from(black), to(#380d00));
+  background: linear-gradient(180deg, black 0%, #380d00 100%);
 }
 
 /* Main css */
-main {
-  background-color: #b6b6b6;
+body {
+  background-image: url("https://cdn.dribbble.com/users/1862205/screenshots/5537727/pizza_flicker__dribbble__2.gif") !important;
+  background-position: center;
 }
 
 .container {
@@ -20,12 +26,6 @@ main {
 
 .main-container {
   text-align: center;
-  margin-top: 1rem;
-}
-
-.principal-banner-container {
-  background-color: aqua;
-  height: 350px;
 }
 
 .principal-banner {
@@ -37,5 +37,7 @@ main {
 .food-article {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.185);
 }
 /*# sourceMappingURL=styles.css.map */
