@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
 /* Header css */
 .navbar {
   padding-top: 1.5rem;
@@ -8,10 +9,12 @@
   color: aliceblue !important;
 }
 
+.navbar-toggler {
+  background: blanchedalmond;
+}
+
 .bg-light {
-  background: black;
-  background: -webkit-gradient(linear, left top, left bottom, from(black), to(#380d00));
-  background: linear-gradient(180deg, black 0%, #380d00 100%);
+  background: black !important;
 }
 
 /* Main css */
@@ -34,10 +37,127 @@ body {
   top: 150px;
 }
 
+.article-container {
+  margin-bottom: 9rem;
+}
+
 .food-article {
-  margin-top: 1rem;
+  margin-top: 10rem;
   margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 400px;
   color: black;
   background-color: rgba(255, 255, 255, 0.185);
+}
+
+.food-article img {
+  position: relative;
+  margin-top: 10px;
+  height: 60%;
+  width: 100%;
+}
+
+/* Footer css */
+footer {
+  display: -ms-grid;
+  display: grid;
+  height: 240px;
+  width: 100%;
+  place-items: center;
+  background: black;
+}
+
+.wrapper .button {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: black;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover {
+  width: 100px;
+}
+
+.wrapper .button .icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 30px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1):hover {
+  background: #4267B2;
+}
+
+.wrapper .button:nth-child(2):hover {
+  background: #E1306C;
+}
+
+.wrapper .button:nth-child(3):hover {
+  background: #333;
+}
+
+.wrapper .button:nth-child(1) .icon {
+  background: #4267B2;
+}
+
+.wrapper .button:nth-child(2) .icon {
+  background: #E1306C;
+}
+
+.wrapper .button:nth-child(3) .icon {
+  background: #333;
+}
+
+.wrapper .button:nth-child(1):hover .icon {
+  background: #4267B2;
+}
+
+.wrapper .button:nth-child(2):hover .icon {
+  background: #E1306C;
+}
+
+.wrapper .button:nth-child(3):hover .icon {
+  background: #333;
+}
+
+.wrapper .button:hover .icon i {
+  color: #888888;
+}
+
+.wrapper .button span {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 50px;
+  margin-left: 10px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1) span {
+  color: #4267B2;
+}
+
+.wrapper .button:nth-child(2) span {
+  color: #E1306C;
+}
+
+.wrapper .button:nth-child(3) span {
+  color: #333;
 }
 /*# sourceMappingURL=styles.css.map */
