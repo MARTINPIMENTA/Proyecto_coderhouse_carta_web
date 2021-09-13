@@ -63,13 +63,13 @@ body{
   height: 340px;
   color: $color_default;
   background-color: rgba(255, 255, 255, 0.185);
-}
 
-.food-article img{
-  position: relative;
-  margin-top: 10px;
-  height: 60%;
-  width: 360px;
+  img{
+    position: relative;
+    margin-top: 10px;
+    height: 60%;
+    width: 360px;
+  }
 }
 
 .opciones-container{
@@ -84,19 +84,19 @@ body{
 
 .lista-paginas{
   display: inline-flex;
-}
 
-.lista-paginas li{
-  margin-left: 10px;
-  margin-right: 10px;
-}
+  li{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
-.lista-paginas a{
-  color: $color_fuente;
-  font-family: $fuente_principal;
-  font-weight: bold;
+  a{
+    color: $color_fuente;
+    font-family: $fuente_principal;
+    font-weight: bold;
+  }
 }
-
+ 
 .sites-container{
   background-color: $color_default;
   height: 900px;
@@ -107,11 +107,11 @@ body{
   padding-top: 9rem;
   margin-bottom: 2rem;
   color: $color_fuente;
-}
 
-.articulo-site iframe{
-  border-radius: 5px;
-}
+  iframe{
+    border-radius: 5px;
+  }
+} 
 
 /* Footer css */
 footer{
