@@ -1,36 +1,34 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-@import url('partials/variables.scss');
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import url("partials/variables.scss");
 /* Global */
 html, body {
   overflow-x: hidden;
 }
 
-
 /* Header css */
-.navbar{
+.navbar {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
-.navbar a{
+.navbar a {
   color: aliceblue !important;
 }
 
-.navbar img{
+.navbar img {
   height: 25px;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   background: blanchedalmond;
 }
 
-.bg-light{
+.bg-light {
   background: black !important;
 }
 
 /* Main css */
-body{
+body {
   background-image: url("https://cdn.dribbble.com/users/1862205/screenshots/5537727/pizza_flicker__dribbble__2.gif") !important;
   background-position: center;
 }
@@ -39,32 +37,33 @@ body{
   text-align: center;
 }
 
-.container{
+.container {
   text-align: center;
 }
 
-.main-container{
+.main-container {
   text-align: center;
 }
 
-.principal-banner{
+.principal-banner {
   background-color: red;
   position: relative;
   top: 150px;
 }
 
-.titulo-container h1{
+.titulo-container h1 {
   margin-top: 4rem;
   font-family: 'Raleway', sans-serif;
   color: aliceblue;
-  text-decoration: underline 1.5px;
+  -webkit-text-decoration: underline 1.5px;
+          text-decoration: underline 1.5px;
 }
 
-.article-container{
+.article-container {
   margin-bottom: 6rem;
 }
 
-.food-article{
+.food-article {
   margin-top: 6rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
@@ -72,58 +71,61 @@ body{
   height: 340px;
   color: black;
   background-color: rgba(255, 255, 255, 0.185);
-
-  img{
-    position: relative;
-    margin-top: 10px;
-    height: 60%;
-    width: 360px;
-  }
 }
 
-.opciones-container{
+.food-article img {
+  position: relative;
+  margin-top: 10px;
+  height: 60%;
+  width: 360px;
+}
+
+.opciones-container {
   background-color: black;
   margin-bottom: 3rem;
 }
 
-.titulo-opciones{
+.titulo-opciones {
   color: aliceblue;
   font-family: 'Raleway', sans-serif;
 }
 
-.lista-paginas{
+.lista-paginas {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-
-  li{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  a{
-    color: aliceblue;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-  }
 }
- 
-.sites-container{
+
+.lista-paginas li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.lista-paginas a {
+  color: aliceblue;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.sites-container {
   background-color: black;
   height: 900px;
   margin-bottom: 3rem;
 }
 
-.articulo-site{
+.articulo-site {
   padding-top: 9rem;
   margin-bottom: 2rem;
   color: aliceblue;
+}
 
-  iframe{
-    border-radius: 5px;
-  }
-} 
+.articulo-site iframe {
+  border-radius: 5px;
+}
 
 /* Footer css */
-footer{
+footer {
+  display: -ms-grid;
   display: grid;
   height: 240px;
   width: 100%;
@@ -131,11 +133,11 @@ footer{
   background: black;
 }
 
-.wrapper a{
+.wrapper a {
   text-decoration: none;
 }
 
-.wrapper .button{
+.wrapper .button {
   display: inline-block;
   height: 30px;
   width: 30px;
@@ -144,69 +146,75 @@ footer{
   background: black;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 10px 10px black;
+  -webkit-box-shadow: 0px 10px 10px black;
+          box-shadow: 0px 10px 10px black;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-.wrapper .button:hover{
+
+.wrapper .button:hover {
   width: 100px;
 }
-.wrapper .button .icon{
+
+.wrapper .button .icon {
   display: inline-block;
   height: 30px;
   width: 30px;
   text-align: center;
   border-radius: 50px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   line-height: 30px;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
-.wrapper .button:hover{
+.wrapper .button:hover {
   background: red;
 }
 
-
-.wrapper .button .icon{
+.wrapper .button .icon {
   background: red;
 }
 
-
-.wrapper .button .icon{
+.wrapper .button .icon {
   background: red;
 }
 
-
-.wrapper .button:hover .icon i{
+.wrapper .button:hover .icon i {
   color: red;
 }
-.wrapper .button span{
+
+.wrapper .button span {
   font-size: 10px;
   font-weight: 500;
   line-height: 50px;
   margin-left: 10px;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-.wrapper .button span{
+
+.wrapper .button span {
   color: red;
 }
 
 @media all and (max-width: 420px) {
   .row {
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-
   .food-article {
     margin-top: 6rem;
     margin-bottom: 1rem;
     height: 340px;
     color: black;
     background-color: rgba(255, 255, 255, 0.185);
-  
-    img{
-      position: relative;
-      margin-top: 10px;
-      height: 60%;
-      width: 300px;
-    }
+  }
+  .food-article img {
+    position: relative;
+    margin-top: 10px;
+    height: 60%;
+    width: 300px;
   }
 }
