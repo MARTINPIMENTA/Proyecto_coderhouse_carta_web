@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import url("partials/variables.scss");
+/* Global */
+html, body {
+  overflow-x: hidden;
+}
+
 /* Header css */
 .navbar {
   padding-top: 1.5rem;
@@ -25,6 +31,10 @@
 body {
   background-image: url("https://cdn.dribbble.com/users/1862205/screenshots/5537727/pizza_flicker__dribbble__2.gif") !important;
   background-position: center;
+}
+
+.container-fluid {
+  text-align: center;
 }
 
 .container {
@@ -71,7 +81,7 @@ body {
 }
 
 .opciones-container {
-  background-color: rgba(99, 99, 99, 0.151);
+  background-color: black;
   margin-bottom: 3rem;
 }
 
@@ -98,7 +108,7 @@ body {
 }
 
 .sites-container {
-  background-color: rgba(0, 0, 0, 0.459);
+  background-color: black;
   height: 900px;
   margin-bottom: 3rem;
 }
@@ -136,8 +146,8 @@ footer {
   background: black;
   border-radius: 50px;
   cursor: pointer;
-  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 10px 10px black;
+          box-shadow: 0px 10px 10px black;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
@@ -164,11 +174,11 @@ footer {
 }
 
 .wrapper .button .icon {
-  background: #ff0000;
+  background: red;
 }
 
 .wrapper .button .icon {
-  background: #ff0000;
+  background: red;
 }
 
 .wrapper .button:hover .icon i {
@@ -185,6 +195,27 @@ footer {
 }
 
 .wrapper .button span {
-  color: #ff0000;
+  color: red;
+}
+
+@media all and (max-width: 420px) {
+  .row {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .food-article {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+    height: 340px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.185);
+  }
+  .food-article img {
+    position: relative;
+    margin-top: 10px;
+    height: 60%;
+    width: 300px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
