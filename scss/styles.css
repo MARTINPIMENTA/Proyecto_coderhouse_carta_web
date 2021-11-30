@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-@import url("partials/variables.scss");
+@import url("partialsvariables.scss");
 /* Global */
 html, body {
   overflow-x: hidden;
@@ -80,6 +80,11 @@ body {
   width: 360px;
 }
 
+.item-image{
+  height: 10px;
+  width: 15px;
+}
+
 .opciones-container {
   background-color: black;
   margin-bottom: 3rem;
@@ -108,7 +113,7 @@ body {
 }
 
 .sites-container {
-  background-color: rgba(61, 61, 61, 0.274);
+  background-color: black;
   height: 900px;
   margin-bottom: 3rem;
 }
@@ -217,5 +222,31 @@ footer {
     height: 60%;
     width: 300px;
   }
+}
+
+/* ? SHOPPING CART */
+.shopping-cart-items {
+  padding: 20px 0px;
+}
+
+.shopping-cart-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.shopping-cart-image {
+  max-width: 80px;
+  border-radius: 20px;
+}
+
+.shopping-cart-quantity-input {
+  max-width: 45px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  padding: 5px;
+}
+
+.shopping-cart-total {
+  min-height: 96px;
 }
 /*# sourceMappingURL=styles.css.map */
