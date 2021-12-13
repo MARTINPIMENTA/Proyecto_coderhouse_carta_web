@@ -24,7 +24,9 @@ html, body {
 /* Main css */
 body {
   background-image: url("https://cdn.dribbble.com/users/1862205/screenshots/5537727/pizza_flicker__dribbble__2.gif") !important;
-  background-position: center; }
+  background-position: center; 
+  color: white;
+}
 
 .container-fluid {
   text-align: center; }
@@ -65,6 +67,13 @@ body {
   height: 60%;
   width: 360px; }
 
+.card {
+  background-color: rgba(255, 255, 255, 0.185);
+}
+
+.table {
+  color: aliceblue;
+}
 .opciones-container {
   background-color: black;
   margin-bottom: 3rem; }

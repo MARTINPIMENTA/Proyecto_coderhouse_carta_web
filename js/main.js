@@ -1,136 +1,146 @@
-const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
-addToShoppingCartButtons.forEach((addToCartButton) => {
-  addToCartButton.addEventListener('click', addToCartClicked);
-});
+const cards = document.getElementById('cards')
+const items = document.getElementById('items')
+const footer = document.getElementById('footer')
+const templateCard = document.getElementById('template-card').content
+const templateFooter = document.getElementById('template-footer').content
+const templateCarrito = document.getElementById('template-carrito').content
+const fragment = document.createDocumentFragment()
+let carrito = {}
 
-const comprarButton = document.querySelector('.comprarButton');
-comprarButton.addEventListener('click', comprarButtonClicked);
+document.addEventListener('DOMContentLoaded', () => {
+	fetchData()
+	if (localStorage.getItem('carrito')) {
+		carrito = JSON.parse(localStorage.getItem('carrito'))
+		pintarCarrito()
+	}
+})
+cards.addEventListener('click', e => {
+	addCarrito(e)
+})
 
-const shoppingCartItemsContainer = document.querySelector(
-  '.shoppingCartItemsContainer'
-);
-// Funcion Agregar al carrito //
-function addToCartClicked(event) {
-  const button = event.target;
-  const item = button.closest('.item');
+items.addEventListener('click',e =>{
+	btnAccion(e)
+})
 
-  const itemTitle = item.querySelector('.item-title').textContent;
-  const itemPrice = item.querySelector('.item-price').textContent;
-  const itemImage = item.querySelector('.item-image').src;
-
-  addItemToShoppingCart(itemTitle, itemPrice, itemImage);
-  
-  // Array para cuando añadimos al carrito en localStorage //    
-  let transaccion = (itemPrice + ' ' + itemTitle);
-
-      let myTrasaccionArray = JSON.parse(localStorage.getItem("transaccionData")) || [ ];
-      myTrasaccionArray.push(transaccion);
-      
-      let transaccionArrayJson = JSON.stringify(myTrasaccionArray);
-      
-      localStorage.setItem("transaccionData", transaccionArrayJson);
+function botonFin (){
+	swal ('Gracias por su compra', 'Round Pizza')
 }
-// Carrito //
-function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
-  const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
-    'shoppingCartItemTitle'
-  );
-  for (let i = 0; i < elementsTitle.length; i++) {
-    if (elementsTitle[i].innerText === itemTitle) {
-      let elementQuantity = elementsTitle[
-        i
-      ].parentElement.parentElement.parentElement.querySelector(
-        '.shoppingCartItemQuantity'
-      );
-      elementQuantity.value++;
-      $('.toast').toast('show');
-      updateShoppingCartTotal();
-      return;
-    }
-  }
 
-  const shoppingCartRow = document.createElement('div');
-  const shoppingCartContent = `
-  <div class="row shoppingCartItem">
-        <div class="col-6">
-            <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <img src=${itemImage} class="shopping-cart-image">
-                <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}</h6>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                <p class="item-price mb-0 shoppingCartItemPrice">${itemPrice}</p>
-            </div>
-        </div>
-        <div class="col-4">
-            <div
-                class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
-                <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
-                    value="1">
-                <button class="btn btn-danger buttonDelete" type="button">X</button>
-            </div>
-        </div>
-    </div>`;
-  shoppingCartRow.innerHTML = shoppingCartContent;
-  shoppingCartItemsContainer.append(shoppingCartRow);
 
-  shoppingCartRow
-    .querySelector('.buttonDelete')
-    .addEventListener('click', removeShoppingCartItem);
 
-  shoppingCartRow
-    .querySelector('.shoppingCartItemQuantity')
-    .addEventListener('change', quantityChanged);
+const fetchData = async () => {
+	try{
+		const res = await fetch('js/api.json')
+		const data = await res.json()
+		pintarCards(data)
+	} catch (error){
+		console.log(error)
+	}
+}
 
-  updateShoppingCartTotal();
+const pintarCards = data => {
+	data.forEach(producto => {
+		templateCard.querySelector('h5').textContent = producto.nombre
+		templateCard.querySelector('p').textContent = producto.precio
+		templateCard.querySelector('img').setAttribute("src", producto.url)
+		templateCard.querySelector('.btn-dark').dataset.id = producto.id
+		const clone = templateCard.cloneNode(true)
+		fragment.appendChild(clone)
+
+	})
+	cards.appendChild(fragment)
+		
 
 }
-// Funcion total actualizado //
-function updateShoppingCartTotal() {
-  let total = 0;
-  const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
+const addCarrito = e =>{
+	// console.log(e.target)
+	// console.log(e.target.classList.contains('btn-dark'))
+	if (e.target.classList.contains('btn-dark')) {
+		setCarrito(e.target.parentElement)
+	}
+	e.stopPropagation()
+}
 
-  const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+const setCarrito = objeto =>{
+	// console.log(objeto)
+	const producto = {
+		id: objeto.querySelector('.btn-dark').dataset.id,
+		title: objeto.querySelector('h5').textContent,
+		precio: objeto.querySelector('p').textContent,
+		cantidad: 1
+	}
+	if (carrito.hasOwnProperty(producto.id)) {
+		producto.cantidad = carrito[producto.id].cantidad + 1
+	}
+	
+	carrito[producto.id] = {...producto}
+	pintarCarrito()
+}
 
-  shoppingCartItems.forEach((shoppingCartItem) => {
-    const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemPrice'
-    );
-    const shoppingCartItemPrice = Number(
-      shoppingCartItemPriceElement.textContent.replace('$', '')
-    );
-    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemQuantity'
-    );
-    const shoppingCartItemQuantity = Number(
-      shoppingCartItemQuantityElement.value
-    );
-    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
-  });
-  shoppingCartTotal.innerHTML = `$${total.toFixed(2)}`;
+const pintarCarrito = () => {
+	// console.log(carrito)
+	items.innerHTML = ''
+	Object.values(carrito).forEach(producto => {
+		templateCarrito.querySelector('th').textContent = producto.id
+		templateCarrito.querySelectorAll('td')[0].textContent = producto.title
+		templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
+		templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+		templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+		templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
+
+		const clone = templateCarrito.cloneNode(true)
+		fragment.appendChild(clone)
+	})
+	items.appendChild(fragment)
+
+	pintarFooter()
+
+	localStorage.setItem('carrito,', JSON.stringify(carrito))
 }
-// Borrar Item //
-function removeShoppingCartItem(event) {
-  const buttonClicked = event.target;
-  buttonClicked.closest('.shoppingCartItem').remove();
-  updateShoppingCartTotal();
+const pintarFooter = () => {
+	footer.innerHTML = ''
+	if (Object.keys(carrito).length === 0){
+		footer.innerHTML = `
+		<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+		`
+		return
+	}
+
+	const nCantidad = Object.values(carrito).reduce((acc,{cantidad}) => acc + cantidad,0)
+	const nPrecio = Object.values(carrito).reduce((acc,{cantidad,precio}) => acc + cantidad * precio,0)
+	
+	templateFooter.querySelectorAll('td')[0].textContent = nCantidad
+	templateFooter.querySelector('span').textContent = nPrecio
+
+	const clone = templateFooter.cloneNode(true)
+	fragment.appendChild(clone)
+	footer.appendChild(fragment)
+
+	const btnVaciar = document.getElementById('vaciar-carrito')
+	btnVaciar.addEventListener('click', () => {
+		carrito = {}
+		pintarCarrito()
+	})
 }
-// Cambia Cantidad (())
-function quantityChanged(event) {
-  const input = event.target;
-  input.value <= 0 ? (input.value = 1) : null;
-  updateShoppingCartTotal();
+
+const btnAccion = e => {
+	// console.log(e.target)
+	// Aumenta
+	if(e.target.classList.contains('btn-info')){
+		// carrito[e.target.dataset.id]
+		console.log(carrito[e.target.dataset.id])
+		const producto = carrito[e.target.dataset.id]
+		producto.cantidad++
+		carrito[e.target.dataset.id] = {...producto}
+		pintarCarrito()
+	}
+	if(e.target.classList.contains('btn-danger')){
+		const producto = carrito[e.target.dataset.id]
+		producto.cantidad--
+		if (producto.cantidad === 0) {
+			delete carrito[e.target.dataset.id]
+		}
+		pintarCarrito()
+	}
+	e.stopPropagation()
 }
-// Comprar Boton //
-function comprarButtonClicked() {
-  shoppingCartItemsContainer.innerHTML = '' ;
-  
-  updateShoppingCartTotal();
-  swal("Gracias por su compra", "Round Pizza", "success");
-}
-// Animate //
-$(".titulo1").animate()
-              .slideUp(2000)
-              .delay(1500)       
-              .slideDown(2000);

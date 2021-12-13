@@ -1,0 +1,39 @@
+[
+					{	"id" : 1,
+						"nombre":"Pepperoni strike",
+						"precio": 950,
+						"stock": "100",
+						"url": "https://ak.picdn.net/shutterstock/videos/1014004172/thumb/1.jpg"
+					},{ 
+						"id" : 2,
+						"nombre": "Meat n Mushrooms",
+						"precio": 999,
+						"stock": "100",
+						"url": "https://images3.alphacoders.com/877/thumb-1920-877414.jpg"
+					},{
+						"id" : 3,
+						"nombre": "Fugazzeta Porteña",
+						"precio": 850,
+						"stock": "100",
+						"url": "https://www.barilocheya.com.ar/pizzeriabase/wp-content/uploads/sites/6/2020/03/fugazeta.jpg"
+					},{
+						"id" : 4,
+						"nombre": "Muzzarella porteña",
+						"precio": 800,
+						"stock": "100",
+						"url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1L_Zo8adgmYjXc-bOXsfW8tFtavmGSb_soXd6kEZTwazW3XPJanesswbQn31YvlKTBc&usqp=CAU"
+					},{ 
+						"id" : 5,
+						"nombre": "Margarita",
+						"precio": 1100,
+						"stock": "100",
+						"url": "https://placeralplato.com/files/2015/06/pizza-Margarita-640x480.jpg?width=1200&enable=upscale"
+					},{ 
+						"id" : 6,
+						"nombre": "Cornicione e Mortadela",
+						"precio": 1300,
+						"stock": "100",
+						"url": "https://static.wixstatic.com/media/0a455c_e280811b3a8c4ea39d234b13784926e0~mv2.jpg/v1/fill/w_1000,h_594,al_c,q_90,usm_0.66_1.00_0.01/0a455c_e280811b3a8c4ea39d234b13784926e0~mv2.jpg"
+					}
+	
+]
